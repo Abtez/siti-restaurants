@@ -33,6 +33,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 MODE=os.getenv("MODE", default="dev")
 DEBUG = os.getenv('DEBUG')
 ALLOWED_HOSTS = ['*']
+CORS_ALLOWED_ORIGINS = ['*']
+CORS_ALLOW_METHODS = ['*']
 # SITE_ID = 1
 # Application definition
 
@@ -45,10 +47,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'eatery',
     'cloudinary',    
-    'rest_framework'
+    'rest_framework',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
