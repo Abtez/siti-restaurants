@@ -1,1 +1,1 @@
-web: gunicorn --timeout 3600 restaurant.wsgi --log-file -
+web: gunicorn --timeout 3600 restaurants.wsgi --log-file -
