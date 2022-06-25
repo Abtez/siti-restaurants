@@ -33,8 +33,28 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 MODE=os.getenv("MODE", default="dev")
 DEBUG = os.getenv('DEBUG')
 ALLOWED_HOSTS = ['*']
-CORS_ALLOWED_ORIGINS = ['*']
-CORS_ALLOW_METHODS = ['*']
+
+CORS_ALLOWED_ORIGINS = [
+    "https://example.com",
+    "https://sub.example.com",
+    "http://localhost:8080",
+    "http://localhost:8000",
+    "http://localhost:5500",
+    "http://localhost:3000",
+    "http://127.0.0.1:9000",
+    "http://127.0.0.1:8000",
+    "http://127.0.0.1:5500",
+    "http://127.0.0.1:5000",
+]
+
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
 # SITE_ID = 1
 # Application definition
 
