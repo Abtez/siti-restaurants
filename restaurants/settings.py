@@ -46,8 +46,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5500",
     "http://127.0.0.1:5501",
     "http://127.0.0.1:5000",
-    # "https://mwanasiti.github.io/phase-1-project/",
-    # "https://mwanasiti.github.io"
+    "https://mwanasiti.github.io/phase-1-project/",
+    "https://mwanasiti.github.io"
 ]
 
 CORS_ALLOW_METHODS = [
