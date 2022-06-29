@@ -50,3 +50,40 @@ class AllRestaurant(APIView):
         restaurant.delete()
         return Response({"status": "success", "data": "student Deleted"})
     
+
+
+class AllComments(APIView):
+    
+    def post(self, request):
+        serializer = CommentSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
+        else:
+            return Response({"status": "error", "data": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+    
+    
+    def get(self, request, id=None):
+        if id:
+            comment = Comment.objects.get(id=id)
+            serializer = CommentSerializer(comment)
+            return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
+
+        comments = Comment.objects.all()
+        serializer = CommentSerializer(comments, many=True)
+        return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)   
+
+    def put(self, request, id=None):
+        comment = Comment.objects.get(id=id)
+        serializer = CommentSerializer(comment, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"status": "success", "data": serializer.data})
+        else:
+            return Response({"status": "error", "data": serializer.errors})
+
+
+    def delete(self, request, id=None):
+        comment = get_object_or_404(Comment, id=id)
+        comment.delete()
+        return Response({"status": "success", "data": "student Deleted"})

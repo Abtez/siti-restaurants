@@ -7,6 +7,8 @@ urlpatterns=[
     path('', views.home, name='home'),
     path('restaurants', views.AllRestaurant.as_view()),
     path('restaurants/<str:id>', views.AllRestaurant.as_view()),
+    path('comments', views.AllComments.as_view()),
+    path('comments/<str:id>', views.AllComments.as_view()),
 ] 
 
 if settings.DEBUG:

@@ -10,3 +10,14 @@ class Restaurant(models.Model):
     
     def __str__(self):
         return self.name
+    
+class Comment(models.Model):
+    restaurants = models.ForeignKey(Restaurant, blank=True, null=True, on_delete=models.CASCADE, related_name='restaurant_comments')
+    comments = models.CharField(max_length=59, null = True, blank = True)
+    likes = models.IntegerField(null = True, blank = True)
+    
+    def __str__(self):
+        return self.restaurants.name
+    
+
+
